@@ -1,8 +1,74 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<Practical_12_Test_1.Models.Employee>
+
+@{
+	ViewBag.Title = "Index";
 }
 
+<h2>Index</h2>
 
-welcome to ADO .net
+<p>
+	@Html.ActionLink("Create New", "Create", string.Empty, new { @class = "btn btn-success btn-sm" })
+	@Html.ActionLink("Fill Some Data", "FillDummyData", string.Empty, new { @class = "btn btn-success btn-sm" })
 
+
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.FirstName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.MiddleName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.LastName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.DOB)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.MobileNo)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Address)
+		</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.FirstName)
+			</td>
+			@if (item.MiddleName == null)
+			{
+				<td>Null</td>
+			}
+			else
+			{
+		<td>
+			@Html.DisplayFor(modelItem => item.MiddleName)
+		</td>
+			}
+			<td>
+				@Html.DisplayFor(modelItem => item.LastName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.DOB)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.MobileNo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Address)
+			</td>
+		</tr>
+	}
+
+</table>
+
+@Html.ActionLink("Truncate Table", "TruncateTable", string.Empty, new { @class = "btn btn-danger btn-sm" })
+@Html.ActionLink("Delete Rows Less than Two Id", "DeleteRowWhichHaveIdLessThanTwo", string.Empty, new { @class = "btn btn-danger btn-sm" })
+@Html.ActionLink("Update Middle Name To I", "UpdateMiddleNameToI", string.Empty, new { @class = "btn btn-danger btn-sm" })
+@Html.ActionLink("Update First Name to SQLPerson", "UpdateFirstNameToSqlPerson", string.Empty, new { @class = "btn btn-danger btn-sm" })
 
