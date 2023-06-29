@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Practical_12_Test_1.Models.Employee>
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.FirstName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.MiddleName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.LastName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.DOB)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.MobileNo)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Address)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Salary)
+		</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.FirstName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.MiddleName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.LastName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.DOB)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.MobileNo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Address)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Salary)
+			</td>
+		</tr>
+	}
+
+</table>
+
+<button id="FetchSalary" class="btn btn-success">Fetch Data</button>
+
+
+Salary : <span id="Salary" class="text-success"> </span>
+
+
+<br />
+@Html.ActionLink("Query 2", "Data", string.Empty, new { @class = "btn btn-success mt-2" })
+
+<br />
+
+<button id="TotalNullCount" class="btn btn-success mt-2">Middle Name Null Count</button>
+Total Null in Middle Name : <span id="Null" class="text-success"> </span>
+
+@section scripts {
+	<script>
+		$(document).ready(() => {
+			$("#FetchSalary").on("click", () => {
+				$.ajax({
+					url: "/Home/TotalSalary",
+					type: "GET",
+					success: (data) => {
+						console.log(data);
+						$("#Salary").text(data);
+					},
+
+					error: (e) => {
+						console.log(e)
+					}
+				})
+			})
+
+			$("#TotalNullCount").on("click", () => {
+				$.ajax({
+					url: "/Home/TotalNull",
+					type: "GET",
+					success: (data) => {
+						console.log(data);
+						$("#Null").text(data);
+					},
+
+					error: (e) => {
+						console.log(e)
+					}
+				})
+			})
+
+		})
+	</script>
+}
