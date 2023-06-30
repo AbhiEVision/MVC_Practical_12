@@ -66,5 +66,16 @@ namespace Practical_12_Test_3.Controllers
 		{
 			return View(db.CreateProcWhichReturnListOrderByFirstName());
 		}
+
+		public ActionResult MaxSalaryEmployees()
+		{
+			return View(db.FindEmployeeWhichHaveMaxSalary());
+		}
+
+		public ActionResult CreateClustredIndex()
+		{
+			db.CreateNonClusteredIndex();
+			return RedirectToAction("Index");
+		}
 	}
 }

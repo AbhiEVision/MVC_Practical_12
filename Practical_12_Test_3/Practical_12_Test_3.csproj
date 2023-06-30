@@ -186,6 +186,7 @@
     <Content Include="Views\Home\DesignationWhichHaveMoreThanOneEmployee.cshtml" />
     <Content Include="Views\Home\CreateStoredProcedureAndWhichGivesSortDatabyDOB.cshtml" />
     <Content Include="Views\Home\CreateStoredProcedureAndWhichGivesSortDatabyFirstName.cshtml" />
+    <Content Include="Views\Home\MaxSalaryEmployees.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

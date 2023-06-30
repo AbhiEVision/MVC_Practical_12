@@ -347,7 +347,7 @@ namespace Practical_12_Test_3.Data
 
 		public void CreateNonClusteredIndex()
 		{
-			string query = "create or alter nonclustered index index_designationID on employee ( DesignationId )";
+			string query = "drop index if exists employee.index_designationID; create nonclustered index index_designationID on employee ( DesignationId )";
 
 			using (SqlConnection connection = new SqlConnection(_connectionString))
 			{

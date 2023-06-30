@@ -70,7 +70,7 @@
 <div class="text-warning font-monospace" style="font-size:20px"> Various Functionalities : </div>
 
 
-<div >
+<div>
 
 	@Html.ActionLink("Add Some Data in Tables", "InsertSomeDefaultData", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
 	@Html.ActionLink("Fetch The EmployeePer View", "FetchTheEmployeePerDesignation", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
@@ -81,6 +81,9 @@
 	@Html.ActionLink("Designation Which Have More than One Employee", "DesignationWhichHaveMoreThanOneEmployee", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
 	@Html.ActionLink("Get The Data Which are sorted by Date of birth", "CreateStoredProcedureAndWhichGivesSortDatabyDOB", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
 	@Html.ActionLink("Get the data which are sorted by First Name", "CreateStoredProcedureAndWhichGivesSortDatabyFirstName", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Truncate table", "Truncate", string.Empty, new { @class = "btn btn-danger" })
     @Html.ActionLink("Truncate table", "Truncate",string.Empty,new { @class = "btn btn-danger" })
+	@Html.ActionLink("Find Max Salary Employees", "MaxSalaryEmployees", string.Empty, new { @class = "btn btn-success" })
+	@Html.ActionLink("create clustered index", "CreateClustredIndex", string.Empty, new { @class = "btn btn-success" })
 
 </div>
