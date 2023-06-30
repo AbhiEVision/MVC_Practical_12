@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Practical_12_Test_3.Models.DesignationCounts>
+
+@Html.ActionLink("Home", "Index", string.Empty, new { @class = "btn btn-success" })
+
+
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Designation)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Count)
+		</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Designation)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Count)
+			</td>
+		</tr>
+	}
+
+</table>

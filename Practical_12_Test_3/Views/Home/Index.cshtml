@@ -1,33 +1,86 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<Practical_12_Test_3.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<h2>Employees</h2>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
-    </div>
-</main>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignationId)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiddleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignationId)
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<div class="text-warning font-monospace" style="font-size:20px"> Various Functionalities : </div>
+
+
+<div >
+
+	@Html.ActionLink("Add Some Data in Tables", "InsertSomeDefaultData", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Fetch The EmployeePer View", "FetchTheEmployeePerDesignation", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Fetch some data", "Query3", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Show The data from View", "CreateViewAndShowDataOfThatView", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Create Stored Procedure for Designation Table", "CreateTheStoreProcedureForInsertInDesignationTable", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Create Stored Procedure for Employee Table", "CreateTheStoreProcedureForInsertInEmployeeTable", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Designation Which Have More than One Employee", "DesignationWhichHaveMoreThanOneEmployee", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Get The Data Which are sorted by Date of birth", "CreateStoredProcedureAndWhichGivesSortDatabyDOB", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+	@Html.ActionLink("Get the data which are sorted by First Name", "CreateStoredProcedureAndWhichGivesSortDatabyFirstName", string.Empty, new { @class = "btn btn-success my-2 mx-2" })
+    @Html.ActionLink("Truncate table", "Truncate",string.Empty,new { @class = "btn btn-danger" })
+
+</div>

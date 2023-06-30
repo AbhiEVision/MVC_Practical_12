@@ -1,30 +1,70 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Practical_12_Test_3.Data;
 using System.Web.Mvc;
 
 namespace Practical_12_Test_3.Controllers
 {
 	public class HomeController : Controller
 	{
+		DatabaseClass db = new DatabaseClass();
+
 		public ActionResult Index()
 		{
-			return View();
+			return View(db.FetchTheEmployees());
 		}
 
-		public ActionResult About()
+		public ActionResult Truncate()
 		{
-			ViewBag.Message = "Your application description page.";
-
-			return View();
+			db.Truncate();
+			return RedirectToAction("Index");
 		}
 
-		public ActionResult Contact()
+		public ActionResult InsertSomeDefaultData()
 		{
-			ViewBag.Message = "Your contact page.";
 
-			return View();
+			db.InsertRecordsInTables();
+			return RedirectToAction("Index");
+		}
+
+		public ActionResult FetchTheEmployeePerDesignation()
+		{
+			return View(db.CountByDesignations());
+		}
+
+		public ActionResult Query3()
+		{
+			return View(db.QueryNumber3());
+		}
+
+		public ActionResult CreateViewAndShowDataOfThatView()
+		{
+			return View(db.CreateView());
+		}
+
+		public ActionResult CreateTheStoreProcedureForInsertInDesignationTable()
+		{
+			db.CreateProcToStoreInDesignation();
+			return RedirectToAction("Index");
+		}
+
+		public ActionResult CreateTheStoreProcedureForInsertInEmployeeTable()
+		{
+			db.CreateProcToStoreInEmployee();
+			return RedirectToAction("Index");
+		}
+
+		public ActionResult DesignationWhichHaveMoreThanOneEmployee()
+		{
+			return View(db.FetchDesignationWhoHaveMoreThanOnEmployee());
+		}
+
+		public ActionResult CreateStoredProcedureAndWhichGivesSortDatabyDOB()
+		{
+			return View(db.CreateProcWhichReturnListOrderByDOB());
+		}
+
+		public ActionResult CreateStoredProcedureAndWhichGivesSortDatabyFirstName()
+		{
+			return View(db.CreateProcWhichReturnListOrderByFirstName());
 		}
 	}
 }
