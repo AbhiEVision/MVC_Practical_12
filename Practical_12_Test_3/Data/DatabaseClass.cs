@@ -31,6 +31,36 @@ namespace Practical_12_Test_3.Data
 			}
 		}
 
+		public List<Designation> GiveDesignationDetails()
+		{
+			List<Designation> designations = new List<Designation>();
+
+			string query = "Select * from Designation";
+
+			using (SqlConnection connection = new SqlConnection(_connectionString))
+			{
+				SqlCommand cmd = new SqlCommand(query, connection);
+
+				connection.Open();
+
+				SqlDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					Designation designation = new Designation();
+
+					designation.Id = Convert.ToInt32(reader["Id"]);
+					designation.DesignationName = reader["Designation"].ToString();
+
+					designations.Add(designation);
+				}
+			}
+
+			return designations;
+
+		}
+
+
 		public void Truncate()
 		{
 			string query = "truncate table employee";
@@ -392,6 +422,22 @@ namespace Practical_12_Test_3.Data
 			}
 
 			return employees;
+		}
+
+		public void CreateStoredProcedureToFetchTheDataByDesignationId()
+		{
+
+			string query = "create or alter proc uspGetEmployeeByDesignationId (@DesignationId INT) as begin select e.Id as empId, e.FirstName,e.MiddleName, e.LastName, d.Designation, e.DOB, e.Mobile, e.Address, e.Salary from Designation d join employee e on d.Id = e.DesignationId order by DOB end";
+
+			using (SqlConnection connection = new SqlConnection(_connectionString))
+			{
+				SqlCommand cmd = new SqlCommand(query, connection);
+
+				connection.Open();
+
+				cmd.ExecuteNonQuery();
+
+			}
 		}
 
 	}

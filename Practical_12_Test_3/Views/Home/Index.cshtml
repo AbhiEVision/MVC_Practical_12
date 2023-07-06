@@ -72,6 +72,8 @@
 
 <div>
 
+	@Html.ActionLink("Designations", "Index", "Designartion", new { }, new { @class = "btn btn-success mx-2 my-2" })
+
 	@Html.ActionLink("Add Some Data in Tables", "InsertSomeDefaultData", new { }, new { @class = "btn btn-success my-2 mx-2" })
 	@Html.ActionLink("Fetch The EmployeePer View", "FetchTheEmployeePerDesignation", new { }, new { @class = "btn btn-success my-2 mx-2" })
 	@Html.ActionLink("Fetch some data", "Query3", new { }, new { @class = "btn btn-success my-2 mx-2" })
@@ -82,8 +84,8 @@
 	@Html.ActionLink("Get The Data Which are sorted by Date of birth", "CreateStoredProcedureAndWhichGivesSortDatabyDOB", new { }, new { @class = "btn btn-success my-2 mx-2" })
 	@Html.ActionLink("Get the data which are sorted by First Name", "CreateStoredProcedureAndWhichGivesSortDatabyFirstName", new { }, new { @class = "btn btn-success my-2 mx-2" })
 	@Html.ActionLink("Truncate table", "Truncate", new { }, new { @class = "btn btn-danger" })
-
+	@Html.ActionLink("Create Stored Procedure for making the Procedure which gives data by DesignationId", "CreateStoredProcedureToFetchTheDataByDesignationId", new { }, new { @class = "btn btn-success" })
 	@Html.ActionLink("Find Max Salary Employees", "MaxSalaryEmployees", new { }, new { @class = "btn btn-success" })
-	@Html.ActionLink("create clustered index", "CreateClustredIndex", new { }, new { @class = "btn btn-success" })
+	@Html.ActionLink("create non clustered index", "CreateNonClustredIndex", new { }, new { @class = "btn btn-success" })
 
 </div>

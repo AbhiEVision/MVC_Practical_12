@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Practical_12_Test_3.Models.Designation>
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Home", "Index","Home", new { }, new { @class = "btn btn-success" })
+
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Id)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.DesignationName)
+		</th>
+
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.DesignationName)
+			</td>
+
+		</tr>
+	}
+
+</table>

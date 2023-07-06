@@ -72,9 +72,15 @@ namespace Practical_12_Test_3.Controllers
 			return View(db.FindEmployeeWhichHaveMaxSalary());
 		}
 
-		public ActionResult CreateClustredIndex()
+		public ActionResult CreateNonClustredIndex()
 		{
 			db.CreateNonClusteredIndex();
+			return RedirectToAction("Index");
+		}
+
+		public ActionResult CreateStoredProcedureToFetchTheDataByDesignationId()
+		{
+			db.CreateStoredProcedureToFetchTheDataByDesignationId();
 			return RedirectToAction("Index");
 		}
 	}
