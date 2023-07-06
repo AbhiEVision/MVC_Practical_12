@@ -66,7 +66,7 @@ namespace Practical_12_Test_1.Data
 
 		public void UpdateFirstNameToSQLPerson()
 		{
-			string query = "update employee set FirstName = 'SQLPerson' where Id = 1";
+			string query = "update employee set FirstName = 'SQLPerson' where Id = (select top 1 Id from employee)";
 
 			using (SqlConnection connection = new SqlConnection(_connectionString))
 			{
@@ -75,7 +75,6 @@ namespace Practical_12_Test_1.Data
 				connection.Open();
 
 				command.ExecuteNonQuery();
-
 
 			}
 		}
