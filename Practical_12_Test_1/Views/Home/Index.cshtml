@@ -7,8 +7,8 @@
 <h2>Index</h2>
 
 <p>
-	@Html.ActionLink("Create New", "Create", string.Empty, new { @class = "btn btn-success btn-sm" })
-	@Html.ActionLink("Fill Some Data", "FillDummyData", string.Empty, new { @class = "btn btn-success btn-sm" })
+	@Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-success btn-sm" })
+	@Html.ActionLink("Fill Some Data", "FillDummyData", new { }, new { @class = "btn btn-success btn-sm" })
 
 
 </p>
@@ -67,8 +67,8 @@
 
 </table>
 
-@Html.ActionLink("Truncate Table", "TruncateTable", string.Empty, new { @class = "btn btn-danger btn-sm" })
-@Html.ActionLink("Delete Rows Less than Two Id", "DeleteRowWhichHaveIdLessThanTwo", string.Empty, new { @class = "btn btn-danger btn-sm" })
-@Html.ActionLink("Update Middle Name To I", "UpdateMiddleNameToI", string.Empty, new { @class = "btn btn-danger btn-sm" })
-@Html.ActionLink("Update First Name to SQLPerson", "UpdateFirstNameToSqlPerson", string.Empty, new { @class = "btn btn-danger btn-sm" })
+@Html.ActionLink("Truncate Table", "TruncateTable", new {}, new { @class = "btn btn-danger btn-sm" })
+@Html.ActionLink("Delete Rows Less than Two Id", "DeleteRowWhichHaveIdLessThanTwo", new { }, new { @class = "btn btn-danger btn-sm" })
+@Html.ActionLink("Update Middle Name To I", "UpdateMiddleNameToI", new { }, new { @class = "btn btn-danger btn-sm" })
+@Html.ActionLink("Update First Name to SQLPerson", "UpdateFirstNameToSqlPerson", new { }, new { @class = "btn btn-danger btn-sm" })
 
